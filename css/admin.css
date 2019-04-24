@@ -1,0 +1,95 @@
+body {
+	padding: 0;
+	margin: 0;
+}
+
+input[type=password] {
+  width: 20vw;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: 3px solid #ccc;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  outline: none;
+}
+
+input[type=password]:focus {
+  border: 3px solid #555;
+}
+
+input[type=button], input[type=submit], input[type=reset] {
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-decoration: none;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+table, td, th {  
+  border: 1px solid #ddd;
+  text-align: left;
+}
+
+table {
+  border-collapse: collapse;
+  width: 95vw;
+  margin: 2vh auto 0;
+}
+
+th, td {
+  padding: 15px;
+}
+
+.btn {
+  border: 2px solid #000;
+  border-radius: 5px;
+  background-color: #fff;
+  color: #000;
+  padding: 14px 28px;
+  font-size: 16px;
+  cursor: pointer;
+  text-decoration: none;
+}
+.blue-btn {
+  border-color: #2196F3;
+  color: #2196F3;
+}
+
+.blue-btn:hover {
+  background: #2196F3;
+  color: #fff;
+}
+.green-btn {
+  border-color: #4CAF50;
+  color: #4CAF50;
+}
+
+.green-btn:hover {
+  background-color: #4CAF50;
+  color: #fff;
+}
+.red-btn {
+  border-color: #f44336;
+  color: #f44336;
+}
+
+.red-btn:hover {
+  background: #f44336;
+  color: #fff;
+}
+
+input[type=text], select {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  resize: vertical;
+}
+
+label {
+  padding: 12px 12px 12px 0;
+  display: inline-block;
+}
