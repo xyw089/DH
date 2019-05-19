@@ -1,9 +1,11 @@
 <?php
 	if(isset($_GET["id"]) || !empty($_GET["id"])) {
-	$sql = "SELECT p.Person_id, p.Fornavn, p.Mellomnavn, p.Etternavn, p.Fodselsdato, p.Telefon, p.Mobil, p.Epost, p.Gatenavn, p.Gatenummer, g.Poststed
+	$sql = "SELECT p.Person_id, p.Fornavn, p.Mellomnavn, p.Etternavn, p.Fodselsdato, p.Telefon, p.Mobil, p.Epost, p.Gatenavn, p.Gatenummer, p.Poststed_Postnummer, p.Kjonn, g.Poststed, k.Kjonnavn
  	FROM Person p
  	LEFT JOIN Poststed g 
  	ON g.Postnummer = p.Poststed_Postnummer
+	LEFT JOIN Kjonn k
+ 	ON k.Kjonn_id = p.Kjonn
 	WHERE Person_id = ".$_GET["id"];
 	$result = $conn->query($sql);	
 	$rad = $result->fetch_assoc();
@@ -17,8 +19,11 @@
 	$epost = $rad["Epost"];
 	$gatenavn = $rad["Gatenavn"];
 	$gatenummer = $rad["Gatenummer"];
-	$GLOBAL['Poststed'] = $rad["Poststed"];
-	
+	$postnummerid = $rad["Poststed_Postnummer"];
+	$kjonnid = $rad["Kjonn"];
+	$poststed = $rad["Poststed"];
+	$kjonnavn = $rad["Kjonnavn"];
+		
 	if(isset($_POST["oppdater-person"])){
 
 		$fnavn = $_POST["fnavn"];
@@ -100,7 +105,7 @@
 	
 	}
 	else {
-	header("location:/admin.php");
+	header("Location: ../admin.php");
 	exit();
 	}
 ?>
@@ -132,7 +137,7 @@
 			$sql = "SELECT p.Postnummer, p.Poststed FROM Poststed p";
 			$result = $conn->query($sql);
 			echo "<select name='pstnmr'>";
-			/*echo "<option value=$GLOBAL[Postnummer]>$GLOBAL[]</option>";*/
+			echo "<option value=$postnummerid>$postnummerid, $poststed</option>";
 			while($rad = $result->fetch_assoc()){
 				$pstnmr = $rad["Postnummer"];
 				$pstnavn = $rad["Poststed"];
@@ -146,6 +151,7 @@
 			$sql = "SELECT k.Kjonn_id, k.Kjonnavn FROM Kjonn k";
 			$result = $conn->query($sql);
 			echo "<select name='sex'>";
+			echo "<option value=$kjonnid>$kjonnavn</option>";
 			while($rad = $result->fetch_assoc()){
 				$sexid = $rad["Kjonn_id"];
 				$sexnavn = $rad["Kjonnavn"];
@@ -170,7 +176,7 @@
 	}
 	echo "</select>";	
 	?>
-	<input type="date" name="dato">
+	<input type="date" name="dato" value="<?php echo(date_create('now')->format('Y-m-d')); ?>">
 	<input type="number" name="grad" min="1" max="10">
 	<input type="submit" name="belte_submit" value="Legg til">
 	</form>

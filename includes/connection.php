@@ -14,4 +14,3 @@
 		//echo("Connection Successfull<br>");
 	}
 	$conn->set_charset('utf8');
-
