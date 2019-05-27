@@ -4,18 +4,22 @@ body, html {
   margin: 0;
   overflow: none;
   scroll-behavior: smooth;
+  font-family: 'Raleway', sans-serif;
 }
 a {
   text-decoration: none;
   color: #000;
   font-family: 'Raleway', sans-serif;
 }
+ul{
+    padding-inline-start: 0px;
+}
 .main-container {
-	height: 100vh;
+    height: 100vh;
 	width: 100%;
 	position: relative;
 	display: flex;
-	align-items: center;
+    align-items: center;
 	justify-content: center;
 	background: #F9C533;
 }
@@ -24,6 +28,23 @@ a {
 	cursor: pointer;
 	z-index: 2;
 	border-radius: 50%;
+}
+.content-container {
+    padding: 5%;
+    height: 80%;
+	width: 90%;
+	position: relative;
+	display: flex;
+    justify-content: space-around;
+    flex-flow: column;
+	background: #F9C533;
+}
+.logo-container {
+	position: relative;
+	display: flex;
+    justify-content: center;
+    align-items: center;
+	background: #F9C533;
 }
 .logo-main {
 	transition: 0.5s ease;
@@ -46,15 +67,7 @@ a {
     transform: rotate(360deg);
   }
 }
-.calendar {
-  border-width:0;
-  width: 100%;
-  height: 100%;
-  frameborder: 0;
-  position: absolute;
-}
-
-.nav{
+.nav {
 	top: 0;
 	display: flex;
 	justify-content:center;
@@ -63,22 +76,264 @@ a {
 	z-index: 2;
 	background: #fff;
 }
-.nav li{
+.nav li {
 	list-style-type: none;
 	font-size: 1.5em;
-	
 }
 #nav-logo {
-	height: 25vh;
+	height: 15vh;
 }
-.nav-box{
+.nav-box {
 	width: 30vw;
 	display: flex;
 	flex-flow: row;
 	justify-content: space-around;
 }
-footer {
-	display: flex;
-	justify-content: center;
-	background: #CFAA2C;
+.nav-box li a {
+  position: relative;
+  text-decoration: none;
+  color: #000;
 }
+.nav-box li a:before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #000;
+  visibility: hidden;
+  -webkit-transform: scaleX(0);
+  transform: scaleX(0);
+  -webkit-transition: all 0.3s ease-in-out 0s;
+  transition: all 0.3s ease-in-out 0s;
+}
+.nav-box li a:hover:before {
+  visibility: visible;
+  -webkit-transform: scaleX(1);
+  transform: scaleX(1);
+}
+.footer {
+  display: flex;
+  justify-content: center;
+  background: #CFAA2C;
+  postion: fixed;
+}
+
+.footer a img {
+	width: 16px;
+	height: 12px;
+}
+.column{
+    width: 40%;
+}
+.row{
+    width: 100%;
+    margin: 100px 0px;
+    display: flex;
+    justify-content: space-around;
+    flex-flow: row;
+}
+.img-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column;
+    margin: 30px;
+}
+#home-img{
+    width: 50vw;
+    margin: 20px;
+}
+#arrow-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#arrow{
+    width: 20px;
+    height: 20px;
+    margin: 10px;
+    animation: bob-up-and-down 2s ease-in-out infinite alternate;
+}
+@-webkit-keyframes bob-up-and-down{
+	0%{-webkit-transform:translateY(-2px);transform:translateY(-2px)}
+	50%{-webkit-transform:translateY(2px);transform:translateY(2px)}
+	100%{-webkit-transform:translateY(-2px);transform:translateY(-2px)}
+}
+.tittel{
+    font-size: 2em;
+    align-self: center;
+    margin: 20px;
+    text-decoration: underline;
+    text-align: center;
+}
+.undertittel{
+    font-size: 1.2em;
+    align-self: center;
+    margin: 20px;
+    text-decoration: underline;
+}
+.tekst{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    line-height: 1.6;
+}
+.sentrer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.resize{
+    width: 70%;
+    height: 35vh;
+}
+.resize-gallery{
+    width: 20vw;
+    height: auto;
+    transition: .3s;
+    cursor: pointer;
+}
+.resize-gallery:hover{
+    opacity: .7;
+}
+.yellow-circle{
+    border-radius: 100%;
+    border: 3px solid #000;
+}
+.top-margin{
+    margin-top: 100px;
+}
+.no-top-margin{
+    margin-top: 0;
+}
+.flex-column{
+    flex-flow: column;
+}
+#galleri{
+    display: none;
+    flex-flow: column;
+}
+#view-more{
+    border: solid thin #000;
+    border-radius: 20px;
+    padding: 10px;
+    cursor: pointer;
+    transition: .3s ease-in-out;
+}
+#view-more:hover{
+    padding: 10px 15px;
+    background-color: antiquewhite;
+    transition: .3s ease-in-out;
+}
+#view-less{
+    border: solid thin #000;
+    border-radius: 20px;
+    padding: 10px;
+    cursor: pointer;
+    transition: .3s ease-in-out;
+    display: none;
+}
+#view-less:hover{
+    padding: 10px 15px;
+    background-color: antiquewhite;
+    transition: .3s ease-in-out;
+}
+#GSBA, #WEKAF{
+    height: 40vh;
+}
+
+.overlap{
+    position: absolute;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5vh;
+}
+
+#mobile-nav{
+    display: none;
+}
+@media screen and (orientation: portrait){
+    #GSBA, #WEKAF, #utstyr{
+        height: 100%;
+    }
+    #home-img{
+        width: 100vw;
+    }
+    .nav-box{
+        display: none;
+    }    
+    .img-container{
+        font-size: 3em;
+        text-align: center;
+    }
+    .tittel{
+        font-size: 5em;
+    }
+    .undertittel{
+        font-size: 4em;
+    }
+    .tekst{
+        font-size: 3em;
+    }
+    .column{
+        width: 100%;
+    }
+    .row{
+        flex-flow: column;
+    }
+    #Kamp{
+        width: 100%;
+    }
+    .resize-gallery{
+        width: 100%;
+    }
+    .flex-end{
+        font-size: 3em;
+    }
+    #WEKAF{
+        width: 100vw;
+        height: 50vh;
+    }
+
+    #mobile-nav{
+        width: 100vw;
+        height: 100vh;
+        z-index: 2;
+        background-color: #F9C533;
+        position: fixed;
+        top: 0;
+        left: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    #mobile-navbar-list{
+        font-size: 3em;
+        text-decoration: none;
+        height: 90vh;
+        text-align: center;
+        display: flex;
+        justify-content: space-around;
+        flex-flow: column;
+    }
+    #closenav{
+        text-align: center;
+        color: red;
+        font-weight: bold;
+    }
+    .navlink{
+        cursor: pointer;
+        border: thin black solid;
+        border-radius: 20px;
+    }
+    .navlink:hover{
+        border: thin black solid;
+        background-color: azure;
+    }
+}
+
+

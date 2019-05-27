@@ -11,14 +11,14 @@
 	include 'includes/connection.php';
 	if(isset($_POST["login"])) {
 		$password = $_POST["password"];
-		if($password == "feitkatt23") {
-			$_SESSION['admin'] = 'katt';
+		if($password == "admin") {
+			$_SESSION['admin'] = 'admin';
 		}
 		else{
 			echo("Feil Passord");
 		}
 	}
-	if (isset($_SESSION['admin']) && $_SESSION['admin'] = 'katt'){ ?>
+	if(isset($_SESSION['admin']) && $_SESSION['admin'] = 'admin'){ ?>
 		<!-- Trigger/Open The Modal -->
 		<a href="create.php">Legg til Medlem</a>
 		<a href="includes/logout.inc.php">Logg av</a>
