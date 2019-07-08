@@ -1,7 +1,7 @@
 <?php
 	$server = "elevweb.akershus-fk.no";
 	$user = "hoth2507";
-	$password = "feitkatt23";
+	$password = "";
 	$databaseName = "hoth2507_dh";
 
 	$conn = new MySQLi($server, $user, $password, $databaseName);
